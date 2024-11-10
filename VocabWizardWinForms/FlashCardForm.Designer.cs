@@ -50,7 +50,6 @@
             goodButton = new Button();
             excellentButton = new Button();
             progressBar = new ProgressBar();
-            vScrollBar1 = new VScrollBar();
             toolTipDirtyStatus = new ToolTip(components);
             toolTipProgressBar = new ToolTip(components);
             SuspendLayout();
@@ -70,7 +69,7 @@
             questionLabel.Location = new Point(33, 71);
             questionLabel.Name = "questionLabel";
             questionLabel.Size = new Size(1000, 120);
-            questionLabel.TabIndex = 4;
+            questionLabel.TabIndex = 0;
             questionLabel.Text = "questionLabel";
             questionLabel.TextAlign = ContentAlignment.TopCenter;
             // 
@@ -81,7 +80,7 @@
             answerButton1.MinimumSize = new Size(1000, 120);
             answerButton1.Name = "answerButton1";
             answerButton1.Size = new Size(1000, 120);
-            answerButton1.TabIndex = 5;
+            answerButton1.TabIndex = 1;
             answerButton1.UseVisualStyleBackColor = true;
             answerButton1.Click += AnswerButton_Click;
             // 
@@ -92,7 +91,7 @@
             answerButton2.MinimumSize = new Size(1000, 120);
             answerButton2.Name = "answerButton2";
             answerButton2.Size = new Size(1000, 120);
-            answerButton2.TabIndex = 6;
+            answerButton2.TabIndex = 2;
             answerButton2.UseVisualStyleBackColor = true;
             answerButton2.Click += AnswerButton_Click;
             // 
@@ -103,7 +102,7 @@
             answerButton3.MinimumSize = new Size(1000, 120);
             answerButton3.Name = "answerButton3";
             answerButton3.Size = new Size(1000, 120);
-            answerButton3.TabIndex = 7;
+            answerButton3.TabIndex = 3;
             answerButton3.UseVisualStyleBackColor = true;
             answerButton3.Click += AnswerButton_Click;
             // 
@@ -114,7 +113,7 @@
             answerButton4.MinimumSize = new Size(1000, 120);
             answerButton4.Name = "answerButton4";
             answerButton4.Size = new Size(1000, 120);
-            answerButton4.TabIndex = 8;
+            answerButton4.TabIndex = 4;
             answerButton4.UseVisualStyleBackColor = true;
             answerButton4.Click += AnswerButton_Click;
             // 
@@ -125,7 +124,7 @@
             answerButton5.MinimumSize = new Size(1000, 120);
             answerButton5.Name = "answerButton5";
             answerButton5.Size = new Size(1000, 120);
-            answerButton5.TabIndex = 9;
+            answerButton5.TabIndex = 5;
             answerButton5.UseVisualStyleBackColor = true;
             answerButton5.Click += AnswerButton_Click;
             // 
@@ -134,7 +133,8 @@
             skipButton.Location = new Point(984, 949);
             skipButton.Name = "skipButton";
             skipButton.Size = new Size(94, 29);
-            skipButton.TabIndex = 10;
+            skipButton.TabIndex = 0;
+            skipButton.TabStop = false;
             skipButton.Text = "Pass";
             skipButton.UseVisualStyleBackColor = true;
             skipButton.Click += SkipButton_Click;
@@ -146,7 +146,7 @@
             progress.Location = new Point(43, 9);
             progress.Name = "progress";
             progress.Size = new Size(93, 28);
-            progress.TabIndex = 11;
+            progress.TabIndex = 0;
             progress.Text = "progress";
             progress.TextAlign = ContentAlignment.MiddleLeft;
             // 
@@ -177,7 +177,7 @@
             scoreLabel.Location = new Point(41, 41);
             scoreLabel.Name = "scoreLabel";
             scoreLabel.Size = new Size(112, 28);
-            scoreLabel.TabIndex = 14;
+            scoreLabel.TabIndex = 0;
             scoreLabel.Text = "scoreLabel";
             scoreLabel.TextAlign = ContentAlignment.MiddleLeft;
             // 
@@ -186,7 +186,8 @@
             quitButton.Location = new Point(984, 8);
             quitButton.Name = "quitButton";
             quitButton.Size = new Size(94, 29);
-            quitButton.TabIndex = 15;
+            quitButton.TabIndex = 0;
+            quitButton.TabStop = false;
             quitButton.Text = "End";
             quitButton.UseVisualStyleBackColor = true;
             quitButton.Click += QuitButton_Click;
@@ -196,7 +197,8 @@
             toggleDirtyStatusButton.Location = new Point(931, 53);
             toggleDirtyStatusButton.Name = "toggleDirtyStatusButton";
             toggleDirtyStatusButton.Size = new Size(147, 29);
-            toggleDirtyStatusButton.TabIndex = 17;
+            toggleDirtyStatusButton.TabIndex = 0;
+            toggleDirtyStatusButton.TabStop = false;
             toggleDirtyStatusButton.Text = "Toggle dirty status";
             toolTipDirtyStatus.SetToolTip(toggleDirtyStatusButton, "Mark this card as 'dirty' for later review");
             toggleDirtyStatusButton.UseVisualStyleBackColor = true;
@@ -208,7 +210,7 @@
             showAnswerButton.Location = new Point(422, 572);
             showAnswerButton.Name = "showAnswerButton";
             showAnswerButton.Size = new Size(235, 59);
-            showAnswerButton.TabIndex = 18;
+            showAnswerButton.TabIndex = 6;
             showAnswerButton.Text = "Show answer";
             showAnswerButton.UseVisualStyleBackColor = true;
             showAnswerButton.Visible = false;
@@ -220,7 +222,7 @@
             failButton.Location = new Point(54, 720);
             failButton.Name = "failButton";
             failButton.Size = new Size(172, 52);
-            failButton.TabIndex = 19;
+            failButton.TabIndex = 7;
             failButton.Text = "Fail";
             failButton.UseVisualStyleBackColor = true;
             failButton.Visible = false;
@@ -232,7 +234,7 @@
             barelyOKButton.Location = new Point(251, 720);
             barelyOKButton.Name = "barelyOKButton";
             barelyOKButton.Size = new Size(172, 52);
-            barelyOKButton.TabIndex = 20;
+            barelyOKButton.TabIndex = 8;
             barelyOKButton.Text = "Barely OK";
             barelyOKButton.UseVisualStyleBackColor = true;
             barelyOKButton.Visible = false;
@@ -244,7 +246,7 @@
             OKButton.Location = new Point(448, 720);
             OKButton.Name = "OKButton";
             OKButton.Size = new Size(172, 52);
-            OKButton.TabIndex = 21;
+            OKButton.TabIndex = 9;
             OKButton.Text = "OK";
             OKButton.UseVisualStyleBackColor = true;
             OKButton.Visible = false;
@@ -256,7 +258,7 @@
             goodButton.Location = new Point(645, 720);
             goodButton.Name = "goodButton";
             goodButton.Size = new Size(172, 52);
-            goodButton.TabIndex = 22;
+            goodButton.TabIndex = 10;
             goodButton.Text = "Good";
             goodButton.UseVisualStyleBackColor = true;
             goodButton.Visible = false;
@@ -268,7 +270,7 @@
             excellentButton.Location = new Point(842, 720);
             excellentButton.Name = "excellentButton";
             excellentButton.Size = new Size(172, 52);
-            excellentButton.TabIndex = 23;
+            excellentButton.TabIndex = 11;
             excellentButton.Text = "Excellent";
             excellentButton.UseVisualStyleBackColor = true;
             excellentButton.Visible = false;
@@ -279,22 +281,15 @@
             progressBar.Location = new Point(391, 43);
             progressBar.Name = "progressBar";
             progressBar.Size = new Size(275, 29);
-            progressBar.TabIndex = 24;
+            progressBar.TabIndex = 0;
             toolTipProgressBar.SetToolTip(progressBar, "Bar showing practice set progress");
-            // 
-            // vScrollBar1
-            // 
-            vScrollBar1.Location = new Point(715, 51);
-            vScrollBar1.Name = "vScrollBar1";
-            vScrollBar1.Size = new Size(8, 8);
-            vScrollBar1.TabIndex = 25;
             // 
             // FlashCardForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
+            AutoValidate = AutoValidate.EnablePreventFocusChange;
             ClientSize = new Size(1089, 987);
-            Controls.Add(vScrollBar1);
             Controls.Add(progressBar);
             Controls.Add(excellentButton);
             Controls.Add(goodButton);
@@ -316,6 +311,9 @@
             Controls.Add(answerButton1);
             Controls.Add(questionLabel);
             Controls.Add(attributes);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
+            MaximizeBox = false;
+            MinimizeBox = false;
             Name = "FlashCardForm";
             Text = "FlashCardForm";
             ResumeLayout(false);

@@ -66,6 +66,7 @@ namespace VocabWizardWinForms
                 answerButton1.BackColor = Color.White; // Ändra bakgrundsfärgen på answerButton1
                 answerButton1.Enabled = false; // Gör answerButton1 oklickbar
                 answerButton1.Visible = true; // Gör answerButton1 synlig
+                excellentButton.Focus(); // Sätt fokus på excellentButton
             }
         }
 
@@ -107,22 +108,33 @@ namespace VocabWizardWinForms
             attributes.Text = $"{_currentExercise.Language} - {_currentExercise.WordClass} - chapter/part: {_currentExercise.Chapter} - {_currentExercise.FileName}"; // Sätt texten i attributes till språk, ordklass, kapitel/del och filnamn för aktuell övning som extra info
             SetCardBackground(_currentExercise.Dirty); // Sätt bakgrundsfärgen på kortet beroende på om övningen är markerad som dirty eller inte. En röd bakgrund betyder att övningen är markerad som dirty.
 
+            UpdateProgress(); // Uppdatera sessionstotalpoäng och progressionbar
+
+
             if (oneCardPractice) // Om enkortsläge är valt
             {
                 answerButton1.Visible = false; // Gör answerButton1 osynlig tills den klickas på
                 showAnswerButton.Visible = true; // Gör showAnswerButton synlig
                 SetButtonText(answerButton1, _currentExercise.Translation); // Sätt texten i answerButton1 till aktuell övningens översättning
                 EnableSelfScoreButtons(false); // Gör self-scoring knapparna oklickbara och osynliga innan ett svar visats
+                answerButton1.Focus();
+
             }
             else
             {
                 _remainingAttempts = 4; // Sätt antal försök kvar att svara rätt till 4 som startvärde
                 PopulateAnswerOptions(); // Fyll svarsalternativen med övningar i valt set och som är angivna i samma språk som aktuell övningskorts språk
                 EnableAnswerButtons(true); // Gör svarsalternativen klickbara
+                                           // Sätt fokus på första synliga och klickbara svarsknapp
+
             }
 
-            UpdateProgress(); // Uppdatera sessionstotalpoäng och progressionbar
+
+
         }
+
+
+
 
         private void PopulateAnswerOptions() // Metod för att fylla svarsalternativen i 5-kortsläge
         {
@@ -185,11 +197,15 @@ namespace VocabWizardWinForms
             // Kontrollera om det finns några besvarade/passerade kort och visa avslutningsskärmen
             if (_currentIndex > 0 || _exerciseSet.Count == 0)
             {
+
                 ShowEndScreen();
             }
             else // om man inte ens klickat på eller förbi ett enda kort så avslutas sessionen utan att någon statistik visas och sessionen stängs bara
             {
+
                 this.Close(); // Stäng om ingen fråga är besvarad
+
+
             }
         }
         private void UpdateProgressbar() // Metod för att uppdatera progressbaren
@@ -304,21 +320,21 @@ namespace VocabWizardWinForms
 
         private void ShowEndScreen() // Metod för att visa avslutningsskärmen med sessionens resultat
         {
+
+
             // Avaktivera alla kontroller i formuläret
             foreach (Control control in this.Controls)
             {
                 control.Enabled = false;
             }
-
             // Skapa en panel för avslutningsskärmen
             Panel endScreenPanel = new Panel
             {
                 Name = "endScreenPanel",
                 Size = new Size(this.ClientSize.Width, this.ClientSize.Height), // Storlek på panelen
                 BackColor = Color.LightGray, // Bakgrundsfärg på panelen
-                BorderStyle = BorderStyle.FixedSingle // Ram runt panelen
+                BorderStyle = BorderStyle.FixedSingle // Ram runt panelen                
             };
-
             // Titel för avslutningsskärmen
             Label titleLabel = new Label
             {
@@ -340,14 +356,12 @@ namespace VocabWizardWinForms
                 Padding = new Padding(10),
                 Height = 60
             };
-
             // Beräkna stjärnbetyget baserat på procent
             double percentage = SessionResult();
             double starRating = percentage * 5 / 100;
             double roundedStarRating = Math.Floor(starRating * 2) / 2.0; // Runda ner till närmaste halva eller exakt
 
             string starImagePath = $"Images/{roundedStarRating.ToString("0.0", System.Globalization.CultureInfo.InvariantCulture)}.png"; // Sökväg till stjärnbilden baserat på stjärnbetyget ser till att . och inte , används i strängen...
-
 
             // Skapa en PictureBox för att visa stjärnbilden
             PictureBox starsPictureBox = new PictureBox
@@ -368,14 +382,12 @@ namespace VocabWizardWinForms
                 starsPictureBox.Image = GeneratePlaceholderImage(roundedStarRating); // Generera en platsmarkering för stjärnbetyget
             }
 
-
             // Skapa en tom panel för extra utrymme mellan stjärnbild och övrig topptext
             Panel spacerPanel = new Panel
             {
                 Height = 125, // Sätt höjden för att skapa extra utrymme
                 Dock = DockStyle.Top // Fäst den högst upp så att den skjuter ner övriga kontroller
             };
-
 
             // Avsluta sessionen-knapp
             Button closeButton = new Button
@@ -389,10 +401,10 @@ namespace VocabWizardWinForms
                 Dock = DockStyle.Bottom, // Fäst knappen i botten av panelen
                 Margin = new Padding(20) // Lägg till marginal runt knappen
             };
+
             closeButton.Click += (s, e) => this.Close(); // Koppla knappen till att stänga sessionen
 
-            // Sätt knappen som acceptknapp
-            this.AcceptButton = closeButton;
+            this.CancelButton = closeButton; // Sätt knappen som cancelknapp så att man kan stänga resultatfönstret med esc-knappen
 
             // Lägg till delarna i panelen
             endScreenPanel.Controls.Add(scoreLabel);
@@ -400,11 +412,18 @@ namespace VocabWizardWinForms
             endScreenPanel.Controls.Add(spacerPanel);
             endScreenPanel.Controls.Add(titleLabel);
             endScreenPanel.Controls.Add(closeButton);
-
             // Lägg till panelen och placera den överst
             this.Controls.Add(endScreenPanel);
-            endScreenPanel.BringToFront();
+            endScreenPanel.BringToFront(); // Sätt knappen i fokus så att man kan stänga resultatfönstret med enter-knappen
+            closeButton.Focus();
+
         }
+
+
+
+
+
+
 
         private Image GeneratePlaceholderImage(double starRating) // Metod för att generera en platsmarkering för stjärnbetyg
         {

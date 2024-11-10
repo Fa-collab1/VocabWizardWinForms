@@ -48,6 +48,8 @@
             dirtyStatusBox = new GroupBox();
             oneCardRadionButton = new RadioButton();
             fiveCardRadionButton = new RadioButton();
+            ReadMe = new Button();
+            toggleRadioButton = new Button();
             SuspendLayout();
             // 
             // languageBox
@@ -123,7 +125,7 @@
             practiceFromEnglish.Location = new Point(316, 885);
             practiceFromEnglish.Name = "practiceFromEnglish";
             practiceFromEnglish.Size = new Size(192, 29);
-            practiceFromEnglish.TabIndex = 10;
+            practiceFromEnglish.TabIndex = 9;
             practiceFromEnglish.Text = "Practice (into Language)";
             practiceFromEnglish.UseVisualStyleBackColor = true;
             practiceFromEnglish.Click += PracticeIntoLanguage_Click;
@@ -133,7 +135,7 @@
             practiceToEnglish.Location = new Point(542, 885);
             practiceToEnglish.Name = "practiceToEnglish";
             practiceToEnglish.Size = new Size(192, 29);
-            practiceToEnglish.TabIndex = 11;
+            practiceToEnglish.TabIndex = 10;
             practiceToEnglish.Text = "Practice (from Language)";
             practiceToEnglish.UseVisualStyleBackColor = true;
             practiceToEnglish.Click += PracticeFromLanguage_Click;
@@ -155,7 +157,7 @@
             quitButton.Location = new Point(965, 5);
             quitButton.Name = "quitButton";
             quitButton.Size = new Size(94, 37);
-            quitButton.TabIndex = 5;
+            quitButton.TabIndex = 14;
             quitButton.Text = "Quit";
             quitButton.UseVisualStyleBackColor = true;
             quitButton.Click += QuitButton_Click;
@@ -165,16 +167,16 @@
             resetFiltersButton.Location = new Point(14, 986);
             resetFiltersButton.Name = "resetFiltersButton";
             resetFiltersButton.Size = new Size(94, 49);
-            resetFiltersButton.TabIndex = 12;
+            resetFiltersButton.TabIndex = 11;
             resetFiltersButton.Text = "Reset filters";
             resetFiltersButton.UseVisualStyleBackColor = true;
             resetFiltersButton.Click += ResetFilters_Click;
             // 
             // clearScoresButton
             // 
-            clearScoresButton.Location = new Point(966, 985);
+            clearScoresButton.Location = new Point(955, 985);
             clearScoresButton.Name = "clearScoresButton";
-            clearScoresButton.Size = new Size(94, 49);
+            clearScoresButton.Size = new Size(105, 49);
             clearScoresButton.TabIndex = 13;
             clearScoresButton.Text = "Clear scores";
             clearScoresButton.UseVisualStyleBackColor = true;
@@ -194,7 +196,7 @@
             averagePointsBox.Location = new Point(12, 707);
             averagePointsBox.Name = "averagePointsBox";
             averagePointsBox.Size = new Size(113, 158);
-            averagePointsBox.TabIndex = 6;
+            averagePointsBox.TabIndex = 5;
             averagePointsBox.TabStop = false;
             // 
             // Dirtylabel
@@ -211,7 +213,7 @@
             dirtyStatusBox.Location = new Point(141, 708);
             dirtyStatusBox.Name = "dirtyStatusBox";
             dirtyStatusBox.Size = new Size(121, 158);
-            dirtyStatusBox.TabIndex = 7;
+            dirtyStatusBox.TabIndex = 6;
             dirtyStatusBox.TabStop = false;
             // 
             // oneCardRadionButton
@@ -220,7 +222,7 @@
             oneCardRadionButton.Location = new Point(89, 887);
             oneCardRadionButton.Name = "oneCardRadionButton";
             oneCardRadionButton.Size = new Size(161, 24);
-            oneCardRadionButton.TabIndex = 8;
+            oneCardRadionButton.TabIndex = 7;
             oneCardRadionButton.TabStop = true;
             oneCardRadionButton.Text = "Single card practice";
             oneCardRadionButton.UseVisualStyleBackColor = true;
@@ -231,16 +233,42 @@
             fiveCardRadionButton.Location = new Point(89, 917);
             fiveCardRadionButton.Name = "fiveCardRadionButton";
             fiveCardRadionButton.Size = new Size(146, 24);
-            fiveCardRadionButton.TabIndex = 9;
+            fiveCardRadionButton.TabIndex = 8;
             fiveCardRadionButton.TabStop = true;
             fiveCardRadionButton.Text = "Five card practice";
             fiveCardRadionButton.UseVisualStyleBackColor = true;
             // 
-            // Form1
+            // ReadMe
             // 
+            ReadMe.Location = new Point(128, 986);
+            ReadMe.Name = "ReadMe";
+            ReadMe.Size = new Size(94, 49);
+            ReadMe.TabIndex = 12;
+            ReadMe.Text = "ReadMe";
+            ReadMe.UseVisualStyleBackColor = true;
+            ReadMe.Click += ReadmeButton_Click;
+            // 
+            // toggleRadioButton
+            // 
+            toggleRadioButton.FlatAppearance.BorderSize = 0;
+            toggleRadioButton.FlatStyle = FlatStyle.Flat;
+            toggleRadioButton.ForeColor = SystemColors.ButtonFace;
+            toggleRadioButton.Location = new Point(89, 949);
+            toggleRadioButton.Name = "toggleRadioButton";
+            toggleRadioButton.Size = new Size(13, 20);
+            toggleRadioButton.TabIndex = 0;
+            toggleRadioButton.TabStop = false;
+            toggleRadioButton.UseVisualStyleBackColor = true;
+            toggleRadioButton.Click += toggle_RadioButton_Click;
+            // 
+            // StartForm
+            // 
+            AcceptButton = toggleRadioButton;
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1072, 1046);
+            Controls.Add(toggleRadioButton);
+            Controls.Add(ReadMe);
             Controls.Add(fiveCardRadionButton);
             Controls.Add(oneCardRadionButton);
             Controls.Add(Dirtylabel);
@@ -261,8 +289,11 @@
             Controls.Add(wordClassBox);
             Controls.Add(label1);
             Controls.Add(languageBox);
-            Name = "Form1";
-            Text = "Form1";
+            FormBorderStyle = FormBorderStyle.FixedSingle;
+            MaximizeBox = false;
+            MinimizeBox = false;
+            Name = "StartForm";
+            Text = "VocabWizardWinForms";
             ResumeLayout(false);
             PerformLayout();
         }
@@ -289,5 +320,7 @@
         private GroupBox dirtyStatusBox;
         private RadioButton oneCardRadionButton;
         private RadioButton fiveCardRadionButton;
+        private Button ReadMe;
+        private Button toggleRadioButton;
     }
 }

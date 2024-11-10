@@ -23,6 +23,22 @@ namespace VocabWizardWinForms
         }
 
 
+        private void toggle_RadioButton_Click(object sender, EventArgs e) // Metod för att byta mellan att öva på en övning eller fem övningar har satt denna som acceptknapp för att kunna använda enter för att byta mellan att öva på en eller fem övningar (använder en knapp som knappt syns för detta)    
+        {
+            if (oneCardRadionButton.Checked == true)
+            {
+                oneCardRadionButton.Checked = false;
+                fiveCardRadionButton.Checked = true;
+            }
+            else
+            {
+                oneCardRadionButton.Checked = true;
+                fiveCardRadionButton.Checked = false;
+            }
+
+        }
+
+
         private void QuitButton_Click(object sender, EventArgs e) // Metod för att avsluta programmet när quit-knappen klickas
         {
             Application.Exit(); // Avsluta programmet
@@ -556,6 +572,12 @@ namespace VocabWizardWinForms
         private void ResetFilters_Click(object sender, EventArgs e) => ResetFilters(); // Metod för att återställa filter, knappen klickas och metoden anropas
 
         private void ClearScores_Click(object sender, EventArgs e) => ClearScoresForSelectedExercises(); // Metod för att nollställa poäng för valda övningar, knappen klickas och metoden anropas
+
+        private void ReadmeButton_Click(object sender, EventArgs e)
+        {
+            ReadmeForm readmeForm = new ReadmeForm();
+            readmeForm.ShowDialog();
+        }
 
     }
 
