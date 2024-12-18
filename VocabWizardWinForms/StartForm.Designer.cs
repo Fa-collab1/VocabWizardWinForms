@@ -82,7 +82,7 @@
             // 
             wordClassBox.Location = new Point(281, 43);
             wordClassBox.Name = "wordClassBox";
-            wordClassBox.Size = new Size(250, 822);
+            wordClassBox.Size = new Size(250, 848);
             wordClassBox.TabIndex = 2;
             wordClassBox.TabStop = false;
             // 
@@ -99,7 +99,7 @@
             // 
             chapterBox.Location = new Point(546, 43);
             chapterBox.Name = "chapterBox";
-            chapterBox.Size = new Size(250, 822);
+            chapterBox.Size = new Size(250, 848);
             chapterBox.TabIndex = 3;
             chapterBox.TabStop = false;
             // 
@@ -116,13 +116,13 @@
             // 
             fileNameBox.Location = new Point(809, 43);
             fileNameBox.Name = "fileNameBox";
-            fileNameBox.Size = new Size(250, 822);
+            fileNameBox.Size = new Size(250, 848);
             fileNameBox.TabIndex = 4;
             fileNameBox.TabStop = false;
             // 
             // practiceFromEnglish
             // 
-            practiceFromEnglish.Location = new Point(316, 885);
+            practiceFromEnglish.Location = new Point(316, 900);
             practiceFromEnglish.Name = "practiceFromEnglish";
             practiceFromEnglish.Size = new Size(192, 29);
             practiceFromEnglish.TabIndex = 9;
@@ -132,7 +132,7 @@
             // 
             // practiceToEnglish
             // 
-            practiceToEnglish.Location = new Point(542, 885);
+            practiceToEnglish.Location = new Point(542, 900);
             practiceToEnglish.Name = "practiceToEnglish";
             practiceToEnglish.Size = new Size(192, 29);
             practiceToEnglish.TabIndex = 10;
@@ -185,7 +185,7 @@
             // AveragePointsLabel
             // 
             AveragePointsLabel.AutoSize = true;
-            AveragePointsLabel.Location = new Point(16, 685);
+            AveragePointsLabel.Location = new Point(16, 667);
             AveragePointsLabel.Name = "AveragePointsLabel";
             AveragePointsLabel.Size = new Size(107, 20);
             AveragePointsLabel.TabIndex = 0;
@@ -193,16 +193,16 @@
             // 
             // averagePointsBox
             // 
-            averagePointsBox.Location = new Point(12, 707);
+            averagePointsBox.Location = new Point(12, 689);
             averagePointsBox.Name = "averagePointsBox";
-            averagePointsBox.Size = new Size(113, 158);
+            averagePointsBox.Size = new Size(113, 202);
             averagePointsBox.TabIndex = 5;
             averagePointsBox.TabStop = false;
             // 
             // Dirtylabel
             // 
             Dirtylabel.AutoSize = true;
-            Dirtylabel.Location = new Point(148, 685);
+            Dirtylabel.Location = new Point(148, 667);
             Dirtylabel.Name = "Dirtylabel";
             Dirtylabel.Size = new Size(83, 20);
             Dirtylabel.TabIndex = 0;
@@ -210,16 +210,16 @@
             // 
             // dirtyStatusBox
             // 
-            dirtyStatusBox.Location = new Point(141, 708);
+            dirtyStatusBox.Location = new Point(141, 690);
             dirtyStatusBox.Name = "dirtyStatusBox";
-            dirtyStatusBox.Size = new Size(121, 158);
+            dirtyStatusBox.Size = new Size(121, 202);
             dirtyStatusBox.TabIndex = 6;
             dirtyStatusBox.TabStop = false;
             // 
             // oneCardRadionButton
             // 
             oneCardRadionButton.AutoSize = true;
-            oneCardRadionButton.Location = new Point(89, 887);
+            oneCardRadionButton.Location = new Point(89, 899);
             oneCardRadionButton.Name = "oneCardRadionButton";
             oneCardRadionButton.Size = new Size(161, 24);
             oneCardRadionButton.TabIndex = 7;
@@ -230,7 +230,7 @@
             // fiveCardRadionButton
             // 
             fiveCardRadionButton.AutoSize = true;
-            fiveCardRadionButton.Location = new Point(89, 917);
+            fiveCardRadionButton.Location = new Point(89, 929);
             fiveCardRadionButton.Name = "fiveCardRadionButton";
             fiveCardRadionButton.Size = new Size(146, 24);
             fiveCardRadionButton.TabIndex = 8;

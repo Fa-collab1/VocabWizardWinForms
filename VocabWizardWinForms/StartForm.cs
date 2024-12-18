@@ -11,6 +11,7 @@ namespace VocabWizardWinForms
         private bool filesInUse = false; // Flagga för att förhindra att filer som håller på att uppdateras inte läses in innan användaren är klar
 
 
+
         public StartForm()
         {
             InitializeComponent(); // Initialisera komponenter
@@ -94,19 +95,20 @@ namespace VocabWizardWinForms
 #endif
         }
 
-        private void OnFileChanged(object sender, FileSystemEventArgs e) // Metod för att hantera filändringar
+        private async void OnFileChanged(object sender, FileSystemEventArgs e) // Metod för att hantera filändringar
         {
             if (filesInUse == false) // om fil används, gör inget
             {
-
                 if (InvokeRequired) // Om anropet inte sker på rätt tråd
                 {
                     Invoke(new Action(() => OnFileChanged(sender, e))); // Anropa metoden på rätt tråd
                     return; // Returnera
                 }
 
-                ReLoad(e); // Ladda om filen
+                // Avvakta lite så att ev. nya filer hinner laddas in
+                await Task.Delay(500);
 
+                ReLoad(e); // Ladda om filen
             }
         }
 
@@ -478,6 +480,12 @@ namespace VocabWizardWinForms
 
         private void PopulateOptions(GroupBox groupBox, List<string> options, string optionType) // Metod för att fylla filteralternativens kryssrutor
         {
+            if (groupBox.InvokeRequired) // Kontrollera om anropet sker på rätt tråd
+            {
+                groupBox.Invoke(new Action(() => PopulateOptions(groupBox, options, optionType))); // Anropa metoden på rätt tråd
+                return; // Returnera
+            }
+
             groupBox.Controls.Clear(); // Rensa alla kryssrutor i gruppen
             groupBox.TabStop = true; // Gör gruppen tabb-bar
 
@@ -580,16 +588,4 @@ namespace VocabWizardWinForms
         }
 
     }
-
-
-
-
-
-
-
-
-
-
-
-
 }

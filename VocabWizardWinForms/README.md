@@ -16,7 +16,6 @@ VocabWizardWinForms is a Windows Forms application designed to facilitate vocabu
 8. [Clearing Scores](#clearing-scores)
 9. [File Monitoring](#file-monitoring)
 10. [Troubleshooting](#troubleshooting)
-11. [Contact and Support](#contact-and-support)
 
 ## Installation
 
@@ -77,7 +76,9 @@ The main window consists of several group boxes for filters and options:
 ### Filter Interaction
 
 - Select and deselect filters to adjust the exercise list.
-- Non-selectable options are visually marked but remain actionable.
+- If a checkbox is marked red, it indicates a selected option that is no longer available based on the current filters.
+- Non-selectable options will be disabled but still visible.
+
 
 ## Practice Modes
 
@@ -90,9 +91,8 @@ VocabWizardWinForms offers two main practice modes:
 
 ### Starting a Practice Session
 
-- Click the "Practice" button to start a session.
-- Choose between practicing into or from a language.
-- Review and self-assess your answers using the provided scoring buttons.
+- Click one of the "Practice" buttons to start a session. (Choosing between practicing into or from a language.)
+- Review and self-assess your answers using the provided scoring buttons in single card mode. In five card mode, grading is done by the application.
 
 ## Customizing and Managing Filters
 
@@ -125,8 +125,3 @@ The application includes a built-in file watcher:
 ### Common Issues
 
 - **File Access Errors**: Ensure Excel files are not open in another application when loading or saving.
-
-### Tips
-
-- If a checkbox is marked red, it indicates a selected option that is no longer available based on the current filters.
-- Non-selectable options will be disabled but still visible.
